@@ -1,5 +1,10 @@
 installation:
 
+----------------------working environment--------------------------
+
+ vagrant
+ ubuntu 20.04
+
 clone this repository to your folder 
 --------------------------requirements----------------------------
 requirements: php 8.2
@@ -11,10 +16,13 @@ requirements: php 8.2
 
     in replacement of DB we will use caching mechanism
 
- ----------------------working environment--------------------------
+  ----------------------------generation and .env----------------------------
 
- vagrant
- ubuntu 20.04
+  copy .env.example to .env 
+  run in your cli: php artisan key generate 
+  open your .env file edit the database 
+
+ 
 -----------------DATABASE-----------------------------------
  Database: no database / no migration 
    in your .env file 
@@ -25,8 +33,8 @@ requirements: php 8.2
 	#DB_USERNAME=root // comment out 
 	#DB_PASSWORD= // comment 
 
-Additional .env variable 
-WILLUSECACHING = 0  // use file caching if set to 1  
+Additional .env variable , add this to last line 
+WILLUSECACHING=0  // use  caching if set to 1  
 
 API_BASE_URL=https://dummyjson.com/
 
