@@ -56,3 +56,27 @@ endpoint in route/api.php
 
 
 
+--------------------apache virtual host configuration -----------------------
+
+<VirtualHost *:80>
+        
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/public/laravel-products/laravel2/public
+        ServerName laravel-product.local
+
+        ErrorLog ${APACHE_LOG_DIR}/laravel-product.local.log
+        CustomLog ${APACHE_LOG_DIR}/laravel-product-access.log combined
+        
+        <Directory "/var/www/public/laravel-products/laravel2/public">
+            #Options Indexes FollowSymLinks
+            Options +FollowSymlinks
+            AllowOverride all
+            Require all granted
+        </Directory>
+        #<FilesMatch  "*.php$">
+         # SetHandler "proxy:unix:/var/run/php/php8.0-fpm.sock|fcgi://localhost/"
+        #</FilesMatch>
+        <FilesMatch ".php$">
+                 SetHandler "proxy:unix:/var/run/php/php8.2-fpm.sock|fcgi://localhost/"
+      </FilesMatch>
+</VirtualHost>
